@@ -1,0 +1,57 @@
+﻿@model InventorySekolah.Models.DataBarang
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "_DataBarang";
+}
+
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.TglMasuk)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TglMasuk)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Nama)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Nama)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Kode)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Kode)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Stok)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Stok)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Status)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Status.Id)
+            </dd>
+        </dl>
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <input type="submit" value="Delete" class="btn btn-danger" />
+            <a class="btn btn-danger" asp-action="Index">Back to List</a>
+        </form>
+    </div>
+    <footer class="footer">
+        <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Copyright © 2022. Asset Inventory</span>
+        </div>
+    </footer>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

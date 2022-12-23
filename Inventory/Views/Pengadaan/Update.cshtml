@@ -1,0 +1,72 @@
+﻿@model InventorySekolah.Models.Pengadaan
+
+@{
+    ViewData["Title"] = "Update";
+    Layout = "_PengadaanBarang";
+}
+
+<h1>Update</h1>
+
+<h4>Pengadaan</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Update">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="TglPengajuan" class="control-label"></label>
+                <input asp-for="TglPengajuan" class="form-control" />
+                <span asp-validation-for="TglPengajuan" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nama" class="control-label"></label>
+                <input asp-for="Nama" class="form-control" />
+                <span asp-validation-for="Nama" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Jumlah" class="control-label"></label>
+                <input asp-for="Jumlah" class="form-control" />
+                <span asp-validation-for="Jumlah" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HargaPerUnit" class="control-label"></label>
+                <input asp-for="HargaPerUnit" type="number" class="form-control" />
+                <span asp-validation-for="HargaPerUnit" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HargaTotal" class="control-label"></label>
+                <input asp-for="HargaTotal" type="number" class="form-control" />
+                <span asp-validation-for="HargaTotal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StatusId" class="control-label"></label>
+                <select asp-for="StatusId" class="form-control" asp-items="ViewBag.StatusId">
+                    <option value="0">---Select---</option>
+                    <option value="4">Ditolak</option>
+                    <option value="3">Disetujui</option>
+                </select>
+                <span asp-validation-for="StatusId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+            <div>
+                <a asp-action="Index">Back to List</a>
+            </div>
+        </form>
+    </div>
+    <footer class="footer">
+        <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Copyright © 2022. Asset Inventory</span>
+        </div>
+    </footer>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

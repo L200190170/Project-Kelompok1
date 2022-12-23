@@ -1,0 +1,82 @@
+﻿@model IEnumerable<InventorySekolah.Models.DataBarang>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_DataBarang";
+}
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <p>
+                                <a class="btn btn-rounded btn-primary" asp-action="Create">Tambah Data</a>
+                            </p>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.TglMasuk)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Nama)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Kode)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Stok)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Status)
+                                        </th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.TglMasuk)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Nama)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Kode)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Stok)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Status.StatusBarang)
+                                            </td>
+                                            <td>
+                                                <a class="btn btn-outline-secondary btn-rounded btn-sm" asp-action="Update" asp-route-id="@item.Id"><i class="ti-pencil-alt text-info"></i></a>
+                                                <a class="btn btn-outline-secondary btn-rounded btn-sm" asp-action="Delete" asp-route-id="@item.Id"><i class="ti-trash text-info"></i></a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- content-wrapper ends -->
+    <!-- partial:../../partials/_footer.html -->
+    <footer class="footer">
+        <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Copyright © 2022. Asset Inventory</span>
+        </div>
+    </footer>
+    <!-- partial -->
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

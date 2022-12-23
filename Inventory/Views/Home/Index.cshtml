@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "_AdminLayout";
+
+}
+
+<div class="tab-content tab-content-basic">
+    <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview">
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="statistics-details d-flex align-items-center justify-content-between">
+                    <div>
+                        <p class="statistics-title">Bounce Rate</p>
+                        <h3 class="rate-percentage">32.53%</h3>
+                        <p class="text-danger d-flex"><i class="mdi mdi-menu-down"></i><span>-0.5%</span></p>
+                    </div>
+                    <div>
+                        <p class="statistics-title">Bounce Rate</p>
+                        <h3 class="rate-percentage">32.53%</h3>
+                        <p class="text-danger d-flex"><i class="mdi mdi-menu-down"></i><span>-0.5%</span></p>
+                    </div>
+                    <div>
+                        <p class="statistics-title">Bounce Rate</p>
+                        <h3 class="rate-percentage">32.53%</h3>
+                        <p class="text-danger d-flex"><i class="mdi mdi-menu-down"></i><span>-0.5%</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
